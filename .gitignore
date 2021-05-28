@@ -1,0 +1,4 @@
+volumes/gitlab/config/*
+volumes/gitlab/logs/*
+volumes/gitlab/data/*
+volumes/jenkins/*

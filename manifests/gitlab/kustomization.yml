@@ -1,0 +1,5 @@
+resources:
+  - "pv.yml"
+  - "pvc.yml"
+  - "svc.yml"
+  - "deploy.yml"

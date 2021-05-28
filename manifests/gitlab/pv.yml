@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gitlab-pv-config
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2G
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/usr/gitlab/config"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gitlab-pv-logs
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2G
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/usr/gitlab/logs"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gitlab-pv-data
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2G
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/usr/gitlab/data"

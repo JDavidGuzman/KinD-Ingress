@@ -1,0 +1,13 @@
+version: "3"
+services:
+  kube:
+    container_name: kube
+    build:
+        context: ./kube
+    volumes:
+    - ~/.kube/config:/home/.kube/config
+    - ../manifests:/home/manifests
+    network_mode: "host"
+    working_dir: /home/manifests
+    environment:
+    - KUBECONFIG=/home/.kube/config

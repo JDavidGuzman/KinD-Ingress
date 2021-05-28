@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gitlab
+  name: gitlab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: gitlab
+    spec:
+      containers:
+      - image: gitlab/gitlab-ce
+        name: gitlab-ce
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        - containerPort: 22
+        #env:
+        #- name: GITLAB_OMNIBUS_CONFIG
+        #  value: : |
+        #    external_url 'gitlab'
+        #    # Add any other gitlab.rb configuration here, each on its own line
+        volumeMounts:
+          - name: gitlab-pv-config 
+            mountPath: "/etc/gitlab"
+          - name: gitlab-pv-logs 
+            mountPath: "/var/log/gitlab"
+          - name: gitlab-pv-config 
+            mountPath: "/var/opt/gitlab"
+        resources: {}
+      volumes:
+      - name: gitlab-pv-config
+        hostPath:
+          path: "/usr/gitlab/config"
+          type: Directory
+      - name: gitlab-pv-logs
+        hostPath:
+          path: "/usr/gitlab/logs"
+          type: Directory
+      - name: gitlab-pv-data
+        hostPath:
+          path: "/usr/gitlab/data"
+          type: Directory
