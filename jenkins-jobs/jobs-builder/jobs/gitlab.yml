@@ -1,0 +1,20 @@
+- project:
+    name: kubernetes-pipeline
+    branch: 
+      - master:
+          jenkinsfile: Jenkinsfile 
+      - test:
+          jenkinsfile: Jenkins.Kubernetes
+    jobs:
+      - 'K8s-{branch}'
+    
+- job-template:
+    name: 'K8s-{branch}'
+    project-type: pipeline
+    pipeline-scm:
+      scm:
+        - git:
+            url: http://gitlab/root/pipeline-test.git
+            branches:
+              - '*/{branch}'
+      script-path: '{jenkinsfile}'

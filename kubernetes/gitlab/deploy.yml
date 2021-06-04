@@ -24,11 +24,9 @@ spec:
         - containerPort: 80
         - containerPort: 443
         - containerPort: 22
-        #env:
-        #- name: GITLAB_OMNIBUS_CONFIG
-        #  value: : |
-        #    external_url 'gitlab'
-        #    # Add any other gitlab.rb configuration here, each on its own line
+        env:
+        - name: GITLAB_OMNIBUS_CONFIG
+          value: external_url 'http://gitlab.172.18.0.3.nip.io'
         volumeMounts:
           - name: gitlab-pv-config 
             mountPath: "/etc/gitlab"

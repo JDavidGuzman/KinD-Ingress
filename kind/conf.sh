@@ -1,8 +1,7 @@
 #!/bin/bash
 
-kind create cluster --name kindname --config config.yml
-bash CNI/calico.sh
+NAME=$1
+
+kind create cluster --name $NAME --config config.yml
 bash LB/metalLB.sh
 bash Ingress/nginx.sh
-
-watch kubectl get po --all-namespaces

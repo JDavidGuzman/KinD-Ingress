@@ -11,3 +11,17 @@ services:
     working_dir: /home/manifests
     environment:
     - KUBECONFIG=/home/.kube/config
+
+  jenkins-jobs:
+    container_name: jenkins-jobs
+    build:
+      context: ./jenkins-jobs
+    volumes:
+      - ../jenkins-jobs/jobs-builder/jobs:/home/jobs
+      - ../jenkins-jobs/jenkins_jobs.ini:/etc/jenkins_jobs/jenkins_jobs.ini
+      - ../jenkins-jobs/jobs-builder/cache:/home/.cache/jenkins_jobs
+    working_dir: /home/jobs
+    network_mode: "host"
+    environment:
+      - XDG_CACHE_HOME=/home/.cache/jenkins_jobs
+    entrypoint: ['jenkins-jobs']

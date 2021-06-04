@@ -2,3 +2,5 @@ volumes/gitlab/config/*
 volumes/gitlab/logs/*
 volumes/gitlab/data/*
 volumes/jenkins/*
+jenkins-jobs/jenkins_jobs.ini
+jenkins-jobs/jobs-builder/cache

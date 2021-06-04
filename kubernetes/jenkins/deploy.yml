@@ -27,6 +27,7 @@ spec:
           - name: jenkins-pv-volume
             mountPath: "/var/jenkins_home"
         resources: {}
+      serviceAccountName: jenkins
       volumes:
       - name: jenkins-pv-volume
         hostPath:

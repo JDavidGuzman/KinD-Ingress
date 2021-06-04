@@ -11,6 +11,10 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 8080
+  - name: agent 
+    port: 50000
+    protocol: TCP
+    targetPort: 50000
   selector:
     app: jenkins
 status:

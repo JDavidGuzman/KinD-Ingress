@@ -1,0 +1,10 @@
+namespace: jenkins
+resources:
+  - "ns.yml"
+  - "pv.yml"
+  - "pvc.yml"
+  - "service.yml"
+  - "deploy.yml"
+  - "sa.yml"
+  - "role.yml"
+  - "rolebinding.yml"

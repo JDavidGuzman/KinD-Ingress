@@ -1,5 +1,6 @@
+namespace: jenkins
 resources:
   - "pv.yml"
   - "pvc.yml"
-  - "service.yml"
+  - "svc.yml"
   - "deploy.yml"
